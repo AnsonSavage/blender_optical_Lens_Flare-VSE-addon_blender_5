@@ -116,29 +116,40 @@ When testing this addon in Blender 5.0, verify:
 1. **Panel appears correctly** in the Sequencer UI sidebar
 2. **Create links button** successfully creates driver relationships
 3. **Clean/Delete links buttons** properly manage drivers
-4. **Transform operations** (position, rotation, scale) work via keyboard shortcuts
-5. **No console errors** during addon enable/disable
-6. **Driver expressions** still evaluate correctly
+4. **No console errors** during addon enable/disable
+5. **Driver expressions** still evaluate correctly
+
+Note: Transform tool keyboard shortcuts (G, S, R, etc.) are not available as VSE_Transform_Tool.py has been disabled. Use Blender's built-in VSE transform features instead.
 
 ## Potential Future Issues
 
 Areas to monitor for potential issues in future Blender versions:
 
 1. **Driver namespace**: `bpy.app.driver_namespace` usage (lines 85, 91, 95 in Optical_Flare_VSE.py)
-2. **OpenGL/GPU module**: The VSE_Transform_Tool.py uses `bgl` extensively for drawing, which may need migration to the `gpu` module in future versions
-3. **Sequence strip properties**: Monitor for any changes to transform strip property names or structures
+2. **Sequence strip properties**: Monitor for any changes to transform strip property names or structures
+
+## VSE Transform Tool - Disabled in Blender 5.0
+
+The VSE_Transform_Tool.py component has been **disabled** in this release:
+
+**Reason**: The addon uses the deprecated `bgl` (OpenGL) module extensively (176+ occurrences), which was removed in Blender 4.0+. The module would need to be completely rewritten to use the modern `gpu` and `gpu_extras` modules.
+
+**Alternative**: Blender now includes built-in transform functionality in the Video Sequence Editor, making this addon component largely unnecessary for modern Blender versions.
+
+**For Legacy Users**: If you need the VSE transform tools, use the original v1.2 addon package with Blender 2.78.
+
+**File Status**: The file has been renamed to `VSE_Transform_Tool.py.disabled` and a README explains the situation.
 
 ## Installation
 
 To install the updated addon in Blender 5.0:
 
 1. Navigate to `Edit > Preferences > Add-ons`
-2. Click "Install" and select either:
-   - `Optical_Flare_VSE.py` for the optical flare functionality
-   - `VSE_Transform_Tool.py` for the transform tools
-   - Or both addons can be installed separately
-3. Enable the addon(s) by checking the checkbox
-4. The panels should appear in the Sequencer sidebar (press 'N' to toggle sidebar)
+2. Click "Install" and select:
+   - `Optical_Flare_VSE.py` for the optical flare functionality (RECOMMENDED)
+   - ~~`VSE_Transform_Tool.py`~~ - Disabled (uses deprecated bgl module)
+3. Enable the addon by checking the checkbox
+4. The panel should appear in the Sequencer sidebar (press 'N' to toggle sidebar)
 
 ## Version History
 

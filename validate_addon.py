@@ -172,12 +172,15 @@ def main():
     
     addon_files = [
         os.path.join(addon_dir, 'Optical_Flare_VSE.py'),
-        os.path.join(addon_dir, 'VSE_Transform_Tool.py')
+        # VSE_Transform_Tool.py is disabled due to bgl dependency (removed in Blender 4.0+)
+        # os.path.join(addon_dir, 'VSE_Transform_Tool.py')
     ]
     
     print("Blender 5.0 Addon Validation Script")
     print("====================================")
     print("This script validates addon compatibility without requiring Blender.")
+    print("\nNote: VSE_Transform_Tool.py has been disabled (uses deprecated bgl module)")
+    print("      Blender now includes built-in VSE transform functionality.\n")
     
     all_passed = True
     for filepath in addon_files:
@@ -192,8 +195,8 @@ def main():
     print("FINAL RESULT")
     print("="*60)
     if all_passed:
-        print("[SUCCESS] All addons passed validation!")
-        print("The addons should be compatible with Blender 5.0")
+        print("[SUCCESS] All enabled addons passed validation!")
+        print("The Optical Flare addon should be compatible with Blender 5.0")
         sys.exit(0)
     else:
         print("[FAILURE] Some validation checks failed")

@@ -17,7 +17,7 @@ This addon provides optical flare effects and enhanced transform tools for Blend
 ## What's Included
 
 - **Optical Flare Engine (v1.3)** - Create realistic lens flares with driver-based control
-- **VSE Transform Tools (v1.1)** - Enhanced transform operations in the sequencer preview
+- **~~VSE Transform Tools (v1.1)~~** - Disabled in Blender 5.0 (Blender now has built-in transform functionality)
 
 ## Version History
 
@@ -27,6 +27,7 @@ This addon provides optical flare effects and enhanced transform tools for Blend
 - Fixed UI panel naming conventions
 - Updated preferences API usage
 - Added comprehensive documentation
+- **Note**: VSE Transform Tool disabled (uses deprecated bgl module; Blender now has built-in transform features)
 
 ### v1.2 (2017) - Major Feature Update
 A massive update has been done with the addon.

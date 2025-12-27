@@ -108,9 +108,14 @@ If you see visual glitches in the transform tools:
 
 ## Known Limitations
 
-1. **Legacy Drawing API**: The transform tools use the older `bgl` drawing API which may be deprecated in future Blender versions
-2. **Naming Convention**: The optical flare system requires specific naming patterns for strips to function correctly
-3. **Single Scene**: Drivers are scene-specific and won't transfer between scenes automatically
+1. **VSE Transform Tool Disabled**: The VSE_Transform_Tool.py component has been disabled in this Blender 5.0 release because:
+   - It uses the deprecated 'bgl' module (removed in Blender 4.0+)
+   - Blender now includes built-in transform functionality for the VSE
+   - The file has been renamed to `VSE_Transform_Tool.py.disabled` for reference
+   
+2. **Legacy Drawing API**: For historical reference, the transform tools used the older `bgl` drawing API which required migration to the `gpu` module
+3. **Naming Convention**: The optical flare system requires specific naming patterns for strips to function correctly
+4. **Single Scene**: Drivers are scene-specific and won't transfer between scenes automatically
 
 ## Getting Help
 
