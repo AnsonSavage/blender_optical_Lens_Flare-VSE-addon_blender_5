@@ -6,6 +6,10 @@ This addon provides optical flare effects and enhanced transform tools for Blend
 
 ## Quick Start
 
+**Download Options**:
+- **Addon_BLENDER_OFL_VSE_CGVIRUS_V1.3_Blender5.zip** - Updated addon for Blender 5.0 (RECOMMENDED)
+- **Addon_BLENDER_OFL_VSE_CGVIRUS_V1.2_Original_Blender2.78.zip** - Original addon for Blender 2.78 (legacy)
+
 **For Blender 5.0 users**: See [INSTALLATION_GUIDE.md](INSTALLATION_GUIDE.md) for installation and usage instructions.
 
 **Upgrade Notes**: See [BLENDER_5_UPGRADE_NOTES.md](BLENDER_5_UPGRADE_NOTES.md) for technical details about the Blender 5.0 update.
