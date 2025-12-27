@@ -21,8 +21,8 @@ bl_info = {
     "name": "Blender Optical Flare Engine",
     "description": "Optical Flare Engine for VSE",
     "author": "Fahad Hasan Pathik CGVIRUS",
-    "version": (1, 2),
-    "blender": (2, 78, 0),
+    "version": (1, 3),
+    "blender": (5, 0, 0),
     "category": "Sequencer",
     "warning":     ""
     }
@@ -1641,12 +1641,13 @@ class OpticalFlarePanel(bpy.types.Panel):
     bl_space_type = "SEQUENCE_EDITOR"
     bl_region_type = "UI"
     bl_label = "Optical Flare"
-    bl_idname = "SEQUENCER_OT_opticalflare"
+    bl_idname = "SEQUENCER_PT_opticalflare"
+    bl_category = "Optical Flare"
     
     def draw(self, context):
         layout = self.layout
         
-        split = layout.split(percentage=0.3)
+        split = layout.split(factor=0.3)
         split.label(text="Flare Num:")
         split.prop(context.scene.sequence_editor.active_strip, "name", text="")
         layout.operator('sequencer.opticalflare',

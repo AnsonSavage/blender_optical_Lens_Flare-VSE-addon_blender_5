@@ -2,8 +2,8 @@ bl_info = {
     "name": "VSE Transform tool",
     "description": "",
     "author": "kgeogeo & DoubleZ",
-    "version": (1, 0),
-    "blender": (2, 6, 5),
+    "version": (1, 1),
+    "blender": (5, 0, 0),
     "wiki_url": "",
     "tracker_url":"",
     "category": "Sequencer"}
@@ -1159,8 +1159,8 @@ def make_quad(seq):
 
 def draw_callback_px_select(self, context):
     bgl.glEnable(bgl.GL_BLEND)
-    col_act = context.user_preferences.themes['Default'].view_3d.object_active
-    col_sel = context.user_preferences.themes['Default'].view_3d.object_selected
+    col_act = context.preferences.themes['Default'].view_3d.object_active
+    col_sel = context.preferences.themes['Default'].view_3d.object_selected
     act_seq = context.scene.sequence_editor.active_strip
     bgl.glLineWidth(4)
     
@@ -1192,7 +1192,7 @@ class TF_Draw_Selection(bpy.types.Operator):
     
     def modal(self, context, event):
         context.area.tag_redraw()
-        mb = bpy.context.user_preferences.inputs.select_mouse
+        mb = bpy.context.preferences.inputs.select_mouse
  
         if event.type == 'TIMER':
             self.t += 1   
@@ -1500,9 +1500,29 @@ def update_pivot_point(self,context):
             _handle_2d_cursor = None   
     
 item_pivot_point = (('0','Median Point','', 'ROTATECENTER', 0),('1','Individual Origins','', 'ROTATECOLLECTION', 1),('2','2D Cursor','', 'CURSOR', 2),('3','Active Strip','', 'ROTACTIVE', 3))  
+
+classes = (
+    TF_Add_Transform,
+    TF_Scale,
+    TF_Rotation,
+    TF_Position,
+    TF_Alpha,
+    TF_Crop,
+    TF_Draw_Selection,
+    TF_Select,
+    TF_Call_Menu,
+    TF_Insert_KeyFrame,
+    TF_Menu_Insert_KF,
+    TF_Call_Menu_Layers,
+    TF_Menu_Layers,
+    TF_Select_Layers,
+    TF_Set_Cursor2D,
+)
         
 def register():
-    bpy.utils.register_module(__name__)
+    for cls in classes:
+        bpy.utils.register_class(cls)
+    
     bpy.types.Scene.seq_cursor2d_loc = IntVectorProperty(name="Scales", description="location of the cursor2d",
                                           subtype = 'XYZ',
                                           default=(50, 50),
@@ -1527,7 +1547,7 @@ def register():
     kmi = km.keymap_items.new("sequencer.tf_crop", 'C', 'PRESS')
     kmi = km.keymap_items.new("sequencer.tf_crop", 'C', 'PRESS', alt=True)
     
-    mb = bpy.context.user_preferences.inputs.select_mouse        
+    mb = bpy.context.preferences.inputs.select_mouse        
     kmi = km.keymap_items.new("sequencer.tf_select", mb + 'MOUSE', 'PRESS')
     kmi = km.keymap_items.new("sequencer.tf_select", mb + 'MOUSE', 'PRESS', shift=True)
     kmi = km.keymap_items.new("sequencer.tf_call_menu_layers", mb + 'MOUSE', 'PRESS', alt=True)
@@ -1535,8 +1555,13 @@ def register():
     kmi = km.keymap_items.new("sequencer.tf_set_cursor2d", mb + 'MOUSE', 'PRESS', ctrl=True)
     
 def unregister():
-    bpy.utils.unregister_module(__name__)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)
+    
     bpy.types.SEQUENCER_HT_header.remove(Add_Icon_Pivot_Point)
+    
+    del bpy.types.Scene.seq_cursor2d_loc
+    del bpy.types.Scene.seq_pivot_type
     
     km = bpy.context.window_manager.keyconfigs.default.keymaps['View2D']
     for kmi in (kmi for kmi in km.keymap_items if kmi.idname in {"sequencer.tf_draw_crop", "sequencer.tf_position", "sequencer.tf_scale", "sequencer.tf_rotation", "sequencer.tf_add_transform", "sequencer.tf_call_menu", "sequencer.tf_select", "sequencer.tf_set_cursor2d", }):
