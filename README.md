@@ -1,28 +1,28 @@
 # Blender Optical Lens Flare VSE Addon for Blender 5.0
 
-**✨ Updated for Blender 5.0 Compatibility! ✨**
+**Updated for Blender 5.0 Compatibility**
 
 This addon provides optical flare effects and enhanced transform tools for Blender's Video Sequence Editor (VSE).
 
-## 🎯 Quick Start
+## Quick Start
 
 **For Blender 5.0 users**: See [INSTALLATION_GUIDE.md](INSTALLATION_GUIDE.md) for installation and usage instructions.
 
 **Upgrade Notes**: See [BLENDER_5_UPGRADE_NOTES.md](BLENDER_5_UPGRADE_NOTES.md) for technical details about the Blender 5.0 update.
 
-## 📦 What's Included
+## What's Included
 
 - **Optical Flare Engine (v1.3)** - Create realistic lens flares with driver-based control
 - **VSE Transform Tools (v1.1)** - Enhanced transform operations in the sequencer preview
 
-## 🚀 Version History
+## Version History
 
 ### v1.3 (2024) - Blender 5.0 Update
-- ✅ Updated all deprecated API calls for Blender 5.0
-- ✅ Modernized registration system
-- ✅ Fixed UI panel naming conventions
-- ✅ Updated preferences API usage
-- ✅ Added comprehensive documentation
+- Updated all deprecated API calls for Blender 5.0
+- Modernized registration system
+- Fixed UI panel naming conventions
+- Updated preferences API usage
+- Added comprehensive documentation
 
 ### v1.2 (2017) - Major Feature Update
 A massive update has been done with the addon.
@@ -37,17 +37,17 @@ Main updates:
 ### Minor Updates
 May 11, 2017 - An auto refresh sequence function is added in creating, cleaning and deleting link buttons. It has upgraded the speed performance.
 
-## 🎓 Learning Resources
+## Learning Resources
 
 **Tutorial playlist**: https://goo.gl/jZXg2H
 
-## ⚠️ Legacy Notes
+## Legacy Notes
 
 ### Known Issue (Historical - for older Blender versions)
 Blender Crashes may have occurred in older versions.
 For Blender 2.79 users: Use Daily builds from Blender website - It's a metastrip issue which has been debugged in daily builds.
 
-## 🙏 Credits & Thanks
+## Credits & Thanks
 
 **Original Authors:**
 - Optical Flare Engine: Fahad Hasan Pathik (CGVIRUS)
@@ -60,11 +60,11 @@ For Blender 2.79 users: Use Daily builds from Blender website - It's a metastrip
 **Related Projects:**
 - Compositor version: https://github.com/cgvirus/Optical-Flare-Node-For-Blender-Compositor
 
-## 📄 License
+## License
 
 This addon is distributed under the GNU General Public License v2.0 or later.
 
-## 🔧 Technical Details
+## Technical Details
 
 For developers and technical users interested in the Blender 5.0 migration details, please refer to:
 - [BLENDER_5_UPGRADE_NOTES.md](BLENDER_5_UPGRADE_NOTES.md) - Detailed API changes and migration notes
