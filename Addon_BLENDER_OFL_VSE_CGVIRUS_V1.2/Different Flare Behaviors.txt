@@ -1,0 +1,21 @@
+﻿Different Behaviors of Flares
+
+1. CoreObjects: These are core or root objects of the light source.
+
+2. Spreads: These are anamorphic horizontal lines which follows the core in Y(up-down) directions. It is fixed in X direction respecting anamorphic behavior.
+
+3. Core_Extra: These are used with core e.g Glow. Difference is they are larger than core like glow or caustic artifacts. If you have a image of a core composited with glow use this as your core source. Or else use this for glow. See presets.
+
+4. Strix Primary and Secondary(CPU Intensive): These are used altogether to create multiiris system. You can also use them as single iris rather than all together. IF you are using some of them then hide other strix. Primary Strix starts from core to the end. They are small. Secondary Strix starts from middle to the end and they are larger.
+
+5.  Sprites: These are just like Strix with larger scale property. It helps to create bunch of spots like iris easily.
+
+6. Anam_Strix(CPU Intensive): These are Horizontal Anamorphic Strix. Usually not used. It creates array of Strix to follow the Spreads.
+
+7. Ghosts: These are Hoop system. It is used to rotate and scale hoops in a special tangent system. Hoops are only occurred when light is huge and close to the camera like Sun. Hoop needs a X and it’s 180 degree reverse image Y to work with. See the hoop example in preset.
+
+8. Grit lens : Dirt texture on lens with masking system.
+
+9. Extra Object: These objects are used in reverse of the Core object. It also has layer iteration property. Below number 5 will be smaller and above five will be larger. It creates the parallax as well. Fun to use for extra elements.
+
+10. Anam Ghosts: Works like Ghost object but only in position X and Y direction with Scale property; without rotation. 
